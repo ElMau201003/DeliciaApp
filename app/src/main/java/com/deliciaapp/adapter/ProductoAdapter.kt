@@ -13,8 +13,13 @@ import com.deliciaapp.utils.CarritoManager
 import com.deliciaapp.R
 import com.deliciaapp.model.Producto
 
-class ProductoAdapter(private val listaProductos: List<Producto>) :
+class ProductoAdapter(private var listaProductos: List<Producto>) :
     RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
+
+    fun actualizarLista(nuevaLista: List<Producto>) {
+        listaProductos = nuevaLista
+        notifyDataSetChanged()
+    }
 
     class ProductoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imgProducto: ImageView = itemView.findViewById(R.id.imgProducto)
@@ -47,6 +52,6 @@ class ProductoAdapter(private val listaProductos: List<Producto>) :
             .into(holder.imgProducto)
     }
 
-
     override fun getItemCount() = listaProductos.size
+
 }

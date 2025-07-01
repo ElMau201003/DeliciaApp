@@ -32,6 +32,9 @@ class SesionFragment : Fragment() {
     private lateinit var sharedPrefs: SharedPreferences
     private lateinit var currentPhotoUri: Uri
 
+    private lateinit var btnCerrarSesion: Button
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_sesion, container, false)
     }
@@ -42,6 +45,7 @@ class SesionFragment : Fragment() {
         tvApellidos = view.findViewById(R.id.tvApellidos)
         tvTelefono = view.findViewById(R.id.tvTelefono)
         tvEmail = view.findViewById(R.id.tvEmail)
+        btnCerrarSesion = view.findViewById(R.id.btnCerrarSesion)
 
         sharedPrefs = requireContext().getSharedPreferences("perfil", Context.MODE_PRIVATE)
 
@@ -51,6 +55,14 @@ class SesionFragment : Fragment() {
         imgPerfil.setOnClickListener {
             mostrarOpcionesFoto()
         }
+
+        btnCerrarSesion.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            Toast.makeText(context, "Sesión cerrada", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(requireContext(), LoginActivity::class.java))
+            requireActivity().finish()
+        }
+
     }
 
     private fun cargarDatosUsuario() {

@@ -7,5 +7,6 @@ data class Pedido(
     val metodo: String = "",
     val direccion: String? = null,
     val referencia: String? = null,
-    val contacto: String? = null
+    val contacto: String? = null,
+    val usuarioId: String = "" // <--- nuevo campo para identificar al usuario
 )

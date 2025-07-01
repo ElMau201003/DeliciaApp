@@ -81,6 +81,12 @@ class CarritoFragment : Fragment() {
     ) {
         val productos = CarritoManager.obtenerProductos()
         val total = productos.sumOf { it.precio * it.cantidad }
+        val uid = com.google.firebase.auth.FirebaseAuth.getInstance().currentUser?.uid
+
+        if (uid == null) {
+            Toast.makeText(context, "Usuario no autenticado", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         val pedido = Pedido(
             productos = productos,
@@ -88,7 +94,8 @@ class CarritoFragment : Fragment() {
             metodo = metodo,
             direccion = direccion,
             referencia = referencia,
-            contacto = contacto
+            contacto = contacto,
+            usuarioId = uid // <--- se guarda el ID del usuario aquí
         )
 
         FirebaseFirestore.getInstance().collection("pedidos")
@@ -104,4 +111,5 @@ class CarritoFragment : Fragment() {
                 Toast.makeText(context, "Error al enviar pedido", Toast.LENGTH_SHORT).show()
             }
     }
+
 }

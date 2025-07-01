@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             val fragment = when (item.itemId) {
                 R.id.nav_catalogo -> CatalogoFragment()
                 R.id.nav_carrito -> CarritoFragment()
+                R.id.nav_pedidos -> PedidosFragment()
                 R.id.nav_sesion -> SesionFragment()
                 else -> null
             }
@@ -38,30 +39,5 @@ class MainActivity : AppCompatActivity() {
             } ?: false
         }
 
-        // 👇 Llamada correcta: dentro del onCreate
-        //subirProductosAFirestore()
     }
-
-    /*private fun subirProductosAFirestore() {
-        val db = FirebaseFirestore.getInstance()
-
-        val productos = listOf(
-            Producto("Pan francés", "Recién horneado todos los días", 2.00),
-            Producto("Empanadas de Pollo", "Rellenas con ingredientes frescos", 5.00),
-            Producto("Pastel de Chocolate", "Puro sabor en cada rebanada", 20.00),
-            Producto("Pie de manzana", "Dulce sabor a manzana", 10.00),
-            Producto("Bizcocho de vainilla", "Un sabor que gusta", 12.00)
-        )
-
-        for (producto in productos) {
-            db.collection("productos")
-                .add(producto)
-                .addOnSuccessListener {
-                    println("✅ Producto '${producto.nombre}' subido con éxito")
-                }
-                .addOnFailureListener { e ->
-                    println("❌ Error al subir el producto: ${e.message}")
-                }
-        }
-    }*/
 }

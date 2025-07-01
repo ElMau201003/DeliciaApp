@@ -10,8 +10,7 @@ data class Producto(
     val descripcion: String = "",
     val precio: Double = 0.0,
     val imagenUrl: String = "",
-
-    @get:Exclude
+    val categoria: String = "",
     var cantidad: Int = 0
 )
 
