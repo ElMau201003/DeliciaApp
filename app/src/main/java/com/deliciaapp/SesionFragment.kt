@@ -63,6 +63,11 @@ class SesionFragment : Fragment() {
             requireActivity().finish()
         }
 
+        val btnIrPanaderia = view.findViewById<Button>(R.id.btnIrPanaderia)
+        btnIrPanaderia.setOnClickListener {
+            abrirGoogleMaps()
+        }
+
     }
 
     private fun cargarDatosUsuario() {
@@ -152,4 +157,38 @@ class SesionFragment : Fragment() {
         sharedPrefs.edit().putString("fotoLocal", file.absolutePath).apply()
         imgPerfil.setImageBitmap(bitmap)
     }
+
+    private fun abrirGoogleMaps() {
+        val latitud = -12.0464
+        val longitud = -77.0428
+        val nombre = "Panadería Delicia"
+        val uri = Uri.parse("https://www.google.com/maps/dir/?api=1&destination=$latitud,$longitud&travelmode=driving")
+
+        // Intenta abrir directamente en Google Maps
+        val mapsIntent = Intent(Intent.ACTION_VIEW, uri).apply {
+            setPackage("com.google.android.apps.maps")
+        }
+
+        // Verifica si Google Maps está instalado y habilitado
+        val mapsDisponible = try {
+            val appInfo = requireContext().packageManager.getApplicationInfo("com.google.android.apps.maps", 0)
+            appInfo.enabled
+        } catch (e: Exception) {
+            false
+        }
+
+        if (mapsDisponible) {
+            startActivity(mapsIntent)
+        } else {
+            // Fallback: abrir en navegador u otra app
+            val fallbackIntent = Intent(Intent.ACTION_VIEW, uri)
+            if (fallbackIntent.resolveActivity(requireActivity().packageManager) != null) {
+                startActivity(fallbackIntent)
+            } else {
+                Toast.makeText(requireContext(), "No se pudo abrir el mapa", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+
 }
