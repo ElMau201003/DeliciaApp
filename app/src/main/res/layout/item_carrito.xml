@@ -1,37 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="12dp"
+    android:gravity="center_vertical"
+    android:background="?android:selectableItemBackground"
+    android:divider="?android:attr/dividerHorizontal"
+    android:showDividers="middle">
 
+    <!-- Nombre del producto -->
     <TextView
         android:id="@+id/tvNombreCarrito"
         android:layout_width="0dp"
         android:layout_weight="2"
         android:layout_height="wrap_content"
-        android:text="Nombre" />
+        android:text="Nombre del producto"
+        android:textSize="16sp"
+        android:textColor="@color/textPrimary"
+        android:maxLines="1"
+        android:ellipsize="end" />
 
+    <!-- Cantidad -->
     <EditText
         android:id="@+id/etCantidad"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
         android:inputType="number"
         android:text="1"
-        android:gravity="center" />
+        android:gravity="center"
+        android:background="@drawable/edittext_background"
+        android:importantForAutofill="no" />
 
+    <!-- Precio -->
     <TextView
         android:id="@+id/tvPrecioCarrito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="S/ 0.00"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp" />
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/textSecondary" />
 
-    <Button
+    <!-- Botón eliminar -->
+    <ImageButton
         android:id="@+id/btnEliminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="❌" />
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@android:drawable/ic_delete"
+        android:contentDescription="Eliminar"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="@color/colorError" />
 </LinearLayout>
-

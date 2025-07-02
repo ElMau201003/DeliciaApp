@@ -1,3 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Nombre de la app -->
     <string name="app_name">DeliciaApp</string>
+
+    <!-- Pantalla de inicio de sesión -->
+    <string name="login_title">Iniciar Sesión</string>
+    <string name="login_email_hint">Correo electrónico</string>
+    <string name="login_password_hint">Contraseña</string>
+    <string name="login_button">Iniciar sesión</string>
+    <string name="register_prompt">¿No tienes cuenta? Regístrate</string>
+
+    <!-- Errores y validaciones -->
+    <string name="error_invalid_email">Correo inválido</string>
+    <string name="error_empty_password">La contraseña no puede estar vacía</string>
+
+    <!-- Otros -->
+    <string name="register">Registrarse</string>
+    <string name="loading">Cargando...</string>
 </resources>

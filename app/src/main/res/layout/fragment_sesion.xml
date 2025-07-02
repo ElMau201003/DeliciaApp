@@ -4,31 +4,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp"
-    android:fillViewport="true">
+    android:fillViewport="true"
+    android:background="@color/colorBackground"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:paddingBottom="24dp">
 
+        <!-- Imagen de perfil -->
         <ImageView
             android:id="@+id/imgPerfil"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/ic_perfil_placeholder"
             android:scaleType="centerCrop"
-            android:layout_marginBottom="24dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/circle_background"
-            android:padding="4dp" />
+            android:padding="4dp"
+            android:contentDescription="Imagen de perfil" />
 
+        <!-- Información del usuario -->
         <TextView
             android:id="@+id/tvNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/textPrimary"
+            android:layout_marginBottom="4dp" />
 
         <TextView
             android:id="@+id/tvApellidos"
@@ -36,37 +44,45 @@
             android:layout_height="wrap_content"
             android:text="Apellidos"
             android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:textColor="@color/textSecondary"
+            android:layout_marginBottom="4dp" />
 
         <TextView
             android:id="@+id/tvTelefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Teléfono"
-            android:textSize="18sp"
-            android:layout_marginBottom="8dp" />
+            android:textSize="16sp"
+            android:textColor="@color/textSecondary"
+            android:layout_marginBottom="4dp" />
 
         <TextView
             android:id="@+id/tvEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Correo"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:textColor="@color/textSecondary"
             android:layout_marginBottom="24dp" />
 
+        <!-- Botones -->
         <Button
             android:id="@+id/btnIrPanaderia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cómo llegar a la panadería"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="8dp"
+            android:drawableStart="@android:drawable/ic_menu_directions"
+            android:padding="12dp" />
 
         <Button
             android:id="@+id/btnCerrarSesion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Cerrar sesión" />
-
+            android:text="Cerrar sesión"
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/colorError"
+            android:padding="12dp" />
     </LinearLayout>
 </ScrollView>

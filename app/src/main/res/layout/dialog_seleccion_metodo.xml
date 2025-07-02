@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="16dp"
+    android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@color/colorBackground"
+    android:fitsSystemWindows="true">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Grupo de opciones de método -->
         <RadioGroup
             android:id="@+id/radioGroupMetodo"
             android:orientation="vertical"
@@ -17,44 +20,44 @@
 
             <RadioButton
                 android:id="@+id/radioDelivery"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Delivery" />
+                android:text="Delivery"
+                android:layout_marginBottom="8dp" />
 
             <RadioButton
                 android:id="@+id/radioRecojo"
+                style="@style/Widget.AppCompat.CompoundButton.RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Recojo en tienda" />
         </RadioGroup>
 
+        <!-- Formulario que aparece solo para "Delivery" -->
         <LinearLayout
             android:id="@+id/layoutFormulario"
             android:orientation="vertical"
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="16dp">
+            android:layout_marginTop="16dp">
 
             <EditText
                 android:id="@+id/etDireccion"
-                android:hint="Dirección"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                style="@style/EditTextStyle"
+                android:hint="Dirección" />
 
             <EditText
                 android:id="@+id/etReferencia"
-                android:hint="Referencia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                style="@style/EditTextStyle"
+                android:hint="Referencia" />
 
             <EditText
                 android:id="@+id/etContacto"
+                style="@style/EditTextStyle"
                 android:hint="Número de contacto"
-                android:inputType="phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:inputType="phone" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

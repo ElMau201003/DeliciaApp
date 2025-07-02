@@ -4,9 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp"
+    android:background="@color/colorBackground"
+    android:fitsSystemWindows="true">
 
-    <!-- Buscador -->
+    <!-- Campo de búsqueda -->
     <EditText
         android:id="@+id/etBuscar"
         android:layout_width="match_parent"
@@ -14,17 +16,20 @@
         android:hint="Buscar productos..."
         android:inputType="text"
         android:drawableStart="@android:drawable/ic_menu_search"
-        android:padding="8dp"
-        android:background="@android:drawable/editbox_background" />
+        android:padding="12dp"
+        android:background="@drawable/edittext_background"
+        android:textColor="@color/textPrimary"
+        android:textColorHint="@color/textSecondary" />
 
-    <!-- Filtros -->
+    <!-- Filtros de búsqueda -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:weightSum="3"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:padding="8dp">
 
         <Spinner
             android:id="@+id/spCategoria"
@@ -39,10 +44,12 @@
             android:layout_height="wrap_content"
             android:hint="Precio mín."
             android:inputType="numberDecimal"
-            android:padding="8dp"
-            android:background="@android:drawable/editbox_background"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp" />
+            android:padding="12dp"
+            android:background="@drawable/edittext_background"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textSecondary"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
 
         <EditText
             android:id="@+id/etPrecioMax"
@@ -51,8 +58,10 @@
             android:layout_height="wrap_content"
             android:hint="Precio máx."
             android:inputType="numberDecimal"
-            android:padding="8dp"
-            android:background="@android:drawable/editbox_background" />
+            android:padding="12dp"
+            android:background="@drawable/edittext_background"
+            android:textColor="@color/textPrimary"
+            android:textColorHint="@color/textSecondary" />
     </LinearLayout>
 
     <!-- Lista de productos -->
@@ -60,6 +69,9 @@
         android:id="@+id/recyclerCatalogo"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1" />
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
 </LinearLayout>
